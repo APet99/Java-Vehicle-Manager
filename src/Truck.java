@@ -39,8 +39,8 @@ public class Truck extends Vehicle {
     }
 
     @Override
-    public String printVehicle() {
-        return super.printVehicle() + "\n" + "Has side step: " + hasSideStep
+    public String toString() {
+        return super.toString() + "\n" + "Has side step: " + hasSideStep
                 + "\n" + "Tow up to " + getTowCapacity() + "tons";
     }
 }

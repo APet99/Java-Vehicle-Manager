@@ -30,7 +30,7 @@ public class Car extends Vehicle {
     //override of printVehicle HERE
 
     @Override
-    public String printVehicle() {
-        return super.printVehicle() + "\n" + "Is convertible: " + isConvertible();
+    public String toString() {
+        return super.toString() + "\n" + "Is convertible: " + isConvertible();
     }
 }

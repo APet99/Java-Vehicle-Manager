@@ -76,11 +76,15 @@ public class Vehicle {
         this.milesPerGal = milesPerGal;
     }
 
-    public String printVehicle(){
+    public String toString(){
         String vehiclePrintout = getModelYear() + " " + getMake() + " " + getModel() + "\n" +
                                getDriveType() + "\n" + "$" + getRetailPrice() + "\n" +
                                 getMilesPerGal() + "MPG";
         return vehiclePrintout;
+    }
+
+    public static void printVehicle(String printOut){
+        System.out.print(printOut);
     }
 }
 
