@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.text.DecimalFormat;
 
 public class Inventory {
     private List<Vehicle> vehicleInventory;
@@ -39,7 +40,9 @@ public class Inventory {
         size--;
     }
 
+    //if there is a tie, it keeps the cheapest vehicle FIRST found.
     public Vehicle findCheapestVehicle() {
+        if(this.size == 0) throw new NoSuchElementException("No vehicles to compare prices of.");
         Vehicle cheapest = new Vehicle("Cheapest", "Cheapest", 9999, "2WD", 999999999, 0);
         for (Vehicle v : vehicleInventory) {
             if(v.getRetailPrice() < cheapest.getRetailPrice()){
@@ -49,7 +52,9 @@ public class Inventory {
         return cheapest;
         }
 
+    //if there is a tie, it keeps the most expensive vehicle FIRST found.
         public Vehicle findMostExpensiveVehicle () {
+            if(this.size == 0) throw new NoSuchElementException("No vehicles to compare prices of.");
             Vehicle expensive = new Vehicle("Cheapest", "Cheapest", 9999, "2WD", -1, 0);
             for (Vehicle v : vehicleInventory) {
                 if(v.getRetailPrice() > expensive.getRetailPrice()){
@@ -60,10 +65,23 @@ public class Inventory {
         }
 
         public void printAveragePriceOfAllVehicles () {
-        int totalCost = 0;
-            for(Vehicle v : vehicleInventory){
-                totalCost += v.getRetailPrice();
-            }
-            System.out.println("The average price is: $" + totalCost/size);
+            System.out.println("The average price is: $" + calculateAvg());
         }
+        public boolean contains(Vehicle o){
+        for(Vehicle v : vehicleInventory){
+            if(v.equals(o)) return true;
+        }
+        return false;
+        }
+
+        //helpers:
+
+    public double calculateAvg(){
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
+        int totalCost = 0;
+        for(Vehicle v : vehicleInventory){
+            totalCost += v.getRetailPrice();
+        }
+        return (double)totalCost/this.size;
+    }
 }

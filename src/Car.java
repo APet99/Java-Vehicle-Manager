@@ -27,8 +27,7 @@ public class Car extends Vehicle {
         isConvertible = convertible;
     }
 
-    //override of printVehicle HERE
-
+    //override of printVehicle
     @Override
     public String toString() {
         return super.toString() + "\n" + "Is convertible: " + isConvertible();

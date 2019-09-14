@@ -86,5 +86,29 @@ public class Vehicle{
     public static void printVehicle(String printOut){
         System.out.print(printOut);
     }
+
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + make.hashCode();
+        result = 31 * result + modelYear;
+        result = 31 * result + model.hashCode();
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(!(obj instanceof Vehicle)) return false;
+        Vehicle v = (Vehicle) obj;
+
+        return  this.make == v.make
+                && this.model == v.model
+                && this.modelYear == v.modelYear
+                && this.driveType == v.driveType
+                && this.retailPrice == v.retailPrice
+                && this.milesPerGal == v.milesPerGal;
+    }
 }
 

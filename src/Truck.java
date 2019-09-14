@@ -22,7 +22,7 @@ public class Truck extends Vehicle {
     }
 
 
-    public boolean isHasSideStep() {
+    public boolean hasSideStep() {
         return hasSideStep;
     }
 
@@ -41,7 +41,7 @@ public class Truck extends Vehicle {
     @Override
     public String toString() {
         return super.toString() + "\n" + "Has side step: " + hasSideStep
-                + "\n" + "Tow up to " + getTowCapacity() + "tons";
+                + "\n" + "Tow up to " + getTowCapacity() + " tons";
     }
 }
 
